@@ -37,6 +37,7 @@ class EventsService
         @.stopExistingConnection()
 
         url = @config.get("eventsUrl")
+        @log.debug("WebSocket URL: #{url}")
 
         # This allows disable events in case
         # url is not found on the configuration.
