@@ -29,8 +29,8 @@ RUN ls -la /app/docker
 WORKDIR /app
 
 # Install dependencies and build the project
-RUN npm install \
-    && npx gulp deploy
+RUN npm install
+RUN npx gulp deploy
 
 # Move the built files to the appropriate location
 RUN mv /app/tmp/* /usr/share/nginx/html/
