@@ -39,8 +39,8 @@ WORKDIR /
 RUN mv /conf.json.template taiga/dist/; \
     chmod +x /docker-entrypoint.d/30_config_env_subst.sh; \
     # Install taiga-front contribs
-    mkdir /taiga/dist/plugins; \
-    cd /taiga/dist/plugins; \
+    mkdir /taiga/plugins; \
+    cd /taiga/plugins; \
     # Slack
     wget https://github.com/taigaio/taiga-contrib-slack/archive/6.8.0.zip -O source.zip; \
     unzip -j source.zip "taiga-contrib-slack-6.8.0/front/dist/*" -d slack; \
@@ -58,7 +58,8 @@ RUN mv /conf.json.template taiga/dist/; \
     apk del --no-cache .build-deps; \
     rm source.zip; \
     # Ready for nginx
-    mv /taiga/dist/* /usr/share/nginx/html; \
+    mv /taiga/dist /usr/share/nginx/html; \
+    mv /taiga/plugins /usr/share/nginx/html/; \
     rm -rf /taiga
 
 # Set the working directory
