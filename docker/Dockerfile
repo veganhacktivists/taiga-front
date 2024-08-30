@@ -11,6 +11,7 @@ LABEL maintainer="support@taiga.io"
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        git \
         bash \
         curl \
         optipng; \
