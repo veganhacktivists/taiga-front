@@ -21,7 +21,7 @@ COPY docker/conf.json.template /
 COPY docker/config_env_subst.sh /docker-entrypoint.d/30_config_env_subst.sh
 
 # Copy your application source code (assuming it's in the current directory)
-COPY ../ /app/docker
+COPY . /app
 
 RUN ls -la /app
 
