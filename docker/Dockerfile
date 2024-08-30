@@ -7,41 +7,39 @@
 FROM nginx:1.23-alpine
 LABEL maintainer="support@taiga.io"
 
+# Install Node.js, npm, and other required packages
+RUN set -eux; \
+    apk update; \
+    apk add --no-cache \
+       bash \
+       nodejs \
+       npm;
+
+# Copy necessary files for configuration
 COPY docker/default.conf /etc/nginx/conf.d/default.conf
 COPY docker/conf.json.template /
 COPY docker/config_env_subst.sh /docker-entrypoint.d/30_config_env_subst.sh
 
-RUN set -eux; \
-    apk update; \
-    apk add --no-cache --virtual .build-deps \
-       subversion; \
-    apk add \
-       bash; \
-    # Install taiga-front core
-    wget https://github.com/taigaio/taiga-front-dist/archive/6.8.1.zip -O source.zip; \
-    unzip source.zip; \
-    mv /taiga-front-dist-6.8.1 /taiga; \
-    mv /conf.json.template taiga/dist/; \
-    chmod +x /docker-entrypoint.d/30_config_env_subst.sh; \
-    # Install taiga-front contribs
-    mkdir /taiga/dist/plugins; \
-    cd /taiga/dist/plugins; \
-    # Slack
-    wget https://github.com/taigaio/taiga-contrib-slack/archive/6.8.0.zip -O source.zip; \
-    unzip -j source.zip "taiga-contrib-slack-6.8.0/front/dist/*" -d slack; \
-    rm source.zip; \
-    # Github
-    wget http://github.com/taigaio/taiga-contrib-github-auth/archive/6.8.0.zip -O source.zip; \
-    unzip -j source.zip "taiga-contrib-github-auth-6.8.0/front/dist/*" -d github-auth; \
-    rm source.zip; \
-    # Gitlab
-    wget http://github.com/taigaio/taiga-contrib-gitlab-auth/archive/6.8.0.zip -O source.zip; \
-    unzip -j source.zip "taiga-contrib-gitlab-auth-6.8.0/front/dist/*" -d gitlab-auth; \
-    rm source.zip; \
-    cd /; \
-    # Remove unused dependencies
-    apk del --no-cache .build-deps; \
-    rm source.zip; \
-    # Ready for nginx
-    mv /taiga/dist/* /usr/share/nginx/html; \
-    rm -rf /taiga
+# Copy your application source code (assuming it's in the current directory)
+COPY . /app
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies and build the project
+RUN npm install \
+    && npx gulp deploy
+
+# Move the built files to the appropriate location
+RUN mv /app/tmp/* /usr/share/nginx/html/
+
+# Clean up unnecessary files
+RUN chmod +x /docker-entrypoint.d/30_config_env_subst.sh; \
+    apk del --no-cache --purge; \
+    rm -rf /var/cache/apk/* /tmp/* /var/tmp/* /app
+
+# Expose necessary ports (if needed)
+EXPOSE 80
+
+# Default command
+CMD ["nginx", "-g", "daemon off;"]
