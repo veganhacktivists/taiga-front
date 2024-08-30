@@ -26,30 +26,42 @@ COPY docker/default.conf /etc/nginx/conf.d/default.conf
 COPY docker/conf.json.template /
 COPY docker/config_env_subst.sh /docker-entrypoint.d/30_config_env_subst.sh
 
-# Copy application source code including package.json and gulpfile.js
-COPY package.json package-lock.json gulpfile.js /app/
-COPY . /app/
-
-# Set the working directory
-WORKDIR /app
+COPY . /taiga/dist
+WORKDIR /taiga/dist
 
 # Install dependencies and build the project
 RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpx gulp deploy
 
+WORKDIR /
+
+RUN mv /conf.json.template taiga/dist/; \
+    chmod +x /docker-entrypoint.d/30_config_env_subst.sh; \
+    # Install taiga-front contribs
+    mkdir /taiga/dist/plugins; \
+    cd /taiga/dist/plugins; \
+    # Slack
+    wget https://github.com/taigaio/taiga-contrib-slack/archive/6.8.0.zip -O source.zip; \
+    unzip -j source.zip "taiga-contrib-slack-6.8.0/front/dist/*" -d slack; \
+    rm source.zip; \
+    # Github
+    wget http://github.com/taigaio/taiga-contrib-github-auth/archive/6.8.0.zip -O source.zip; \
+    unzip -j source.zip "taiga-contrib-github-auth-6.8.0/front/dist/*" -d github-auth; \
+    rm source.zip; \
+    # Gitlab
+    wget http://github.com/taigaio/taiga-contrib-gitlab-auth/archive/6.8.0.zip -O source.zip; \
+    unzip -j source.zip "taiga-contrib-gitlab-auth-6.8.0/front/dist/*" -d gitlab-auth; \
+    rm source.zip; \
+    cd /; \
+    # Remove unused dependencies
+    apk del --no-cache .build-deps; \
+    rm source.zip; \
+    # Ready for nginx
+    mv /taiga/dist/* /usr/share/nginx/html; \
+    rm -rf /taiga
+
+# Set the working directory
+
 # Move the built files to the appropriate location
-RUN mv /app/tmp/* /usr/share/nginx/html/
-
-# Clean up unnecessary files
-RUN chmod +x /docker-entrypoint.d/30_config_env_subst.sh; \
-    apt-get remove -y --purge curl; \
-    apt-get autoremove -y; \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /app
-
-# Expose necessary ports (if needed)
-EXPOSE 80
-
-# Default command
-CMD ["nginx", "-g", "daemon off;"]
 
