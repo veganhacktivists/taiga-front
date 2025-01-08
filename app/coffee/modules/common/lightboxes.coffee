@@ -662,7 +662,7 @@ $confirm, $q, attachmentsService, $template, $compile) ->
                 $scope[key] = value
 
             if params.objType == 'us'
-                $scope.obj.us_position = 'bottom'
+                $scope.obj.us_position = 'top'
 
             form.reset() if form
             resetAttachments()
