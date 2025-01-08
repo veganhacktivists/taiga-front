@@ -345,7 +345,7 @@ CreateBulkUserstoriesDirective = ($repo, $rs, $rootscope, lightboxService, $load
                 statusId: status
                 bulk: ""
                 swimlaneId: swimlaneId
-                us_position: 'bottom'
+                us_position: 'top'
             }
             getCurrentStatus()
             lightboxService.open($el)
