@@ -32,13 +32,10 @@ COPY . /taiga
 WORKDIR /taiga
 
 # Install dependencies and build the project
-RUN npm install -g pnpm
-RUN pnpm install
-RUN which optipng
+# RUN npm install -g pnpm
+RUN npm install
 
-RUN optipng -version
-
-RUN pnpx gulp deploy
+RUN npx gulp deploy
 
 WORKDIR /
 
