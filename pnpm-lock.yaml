@@ -93,8 +93,8 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0
       optipng-bin:
-        specifier: ^9.0.0
-        version: 9.0.0
+        specifier: ^6.0.0
+        version: 6.0.0
       pikaday:
         specifier: ^1.8.2
         version: 1.8.2
@@ -4554,11 +4554,6 @@ packages:
     engines: {node: '>=8'}
     hasBin: true
 
-  optipng-bin@9.0.0:
-    resolution: {integrity: sha512-uDcmcNK4MRSM5ezLThUPI7fc9ZxlQMqnxhWxIc7foCcUZZ2LvzbcJwwVEsU78tC3t9B68dwE4y/m6at10Z93UA==}
-    engines: {node: ^14.13.1 || >=16.0.0}
-    hasBin: true
-
   ora@5.4.1:
     resolution: {integrity: sha512-5b6Y85tPxZZ7QytO+BQzysW31HJku27cRIlkbAXaNx+BdcVi+LlRFmVXzeF6a7JCwJpyw5c4b+YSVImQIrBpuQ==}
     engines: {node: '>=10'}
@@ -7222,8 +7217,7 @@ snapshots:
 
   array-each@1.0.1: {}
 
-  array-find-index@1.0.2:
-    optional: true
+  array-find-index@1.0.2: {}
 
   array-flatten@1.1.1: {}
 
@@ -8146,7 +8140,6 @@ snapshots:
     dependencies:
       camelcase: 2.1.1
       map-obj: 1.0.1
-    optional: true
 
   camelcase-keys@6.2.2:
     dependencies:
@@ -8156,8 +8149,7 @@ snapshots:
 
   camelcase@1.2.1: {}
 
-  camelcase@2.1.1:
-    optional: true
+  camelcase@2.1.1: {}
 
   camelcase@3.0.0: {}
 
@@ -8565,8 +8557,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  console-stream@0.1.1:
-    optional: true
+  console-stream@0.1.1: {}
 
   constantinople@3.0.2:
     dependencies:
@@ -8709,7 +8700,6 @@ snapshots:
   currently-unhandled@0.4.1:
     dependencies:
       array-find-index: 1.0.2
-    optional: true
 
   custom-event@1.0.1: {}
 
@@ -9487,7 +9477,6 @@ snapshots:
     dependencies:
       escape-string-regexp: 1.0.5
       object-assign: 4.1.1
-    optional: true
 
   file-entry-cache@6.0.1:
     dependencies:
@@ -9733,8 +9722,7 @@ snapshots:
     dependencies:
       npm-conf: 1.1.3
 
-  get-stdin@4.0.1:
-    optional: true
+  get-stdin@4.0.1: {}
 
   get-stdin@8.0.0: {}
 
@@ -10553,7 +10541,6 @@ snapshots:
   indent-string@2.1.0:
     dependencies:
       repeating: 2.0.1
-    optional: true
 
   indent-string@4.0.0: {}
 
@@ -11294,7 +11281,6 @@ snapshots:
     dependencies:
       figures: 1.7.0
       squeak: 1.3.0
-    optional: true
 
   lolex@1.3.2: {}
 
@@ -11310,7 +11296,6 @@ snapshots:
     dependencies:
       currently-unhandled: 0.4.1
       signal-exit: 3.0.7
-    optional: true
 
   lowercase-keys@1.0.0: {}
 
@@ -11322,7 +11307,6 @@ snapshots:
       indent-string: 2.1.0
       longest: 1.0.1
       meow: 3.7.0
-    optional: true
 
   lru-cache@2.7.3: {}
 
@@ -11450,7 +11434,6 @@ snapshots:
       read-pkg-up: 1.0.1
       redent: 1.0.0
       trim-newlines: 1.0.0
-    optional: true
 
   meow@9.0.0:
     dependencies:
@@ -11877,12 +11860,6 @@ snapshots:
       bin-build: 3.0.0
       bin-wrapper: 4.1.0
       logalot: 2.1.0
-    optional: true
-
-  optipng-bin@9.0.0:
-    dependencies:
-      bin-build: 3.0.0
-      bin-wrapper: 4.1.0
 
   ora@5.4.1:
     dependencies:
@@ -12372,7 +12349,6 @@ snapshots:
     dependencies:
       indent-string: 2.1.0
       strip-indent: 1.0.1
-    optional: true
 
   redent@3.0.0:
     dependencies:
@@ -12930,7 +12906,6 @@ snapshots:
       chalk: 1.1.3
       console-stream: 0.1.1
       lpad-align: 1.1.2
-    optional: true
 
   sshpk@1.18.0:
     dependencies:
@@ -13074,7 +13049,6 @@ snapshots:
   strip-indent@1.0.1:
     dependencies:
       get-stdin: 4.0.1
-    optional: true
 
   strip-indent@3.0.0:
     dependencies:
@@ -13384,8 +13358,7 @@ snapshots:
       promise: 2.0.0
       uglify-js: 2.2.5
 
-  trim-newlines@1.0.0:
-    optional: true
+  trim-newlines@1.0.0: {}
 
   trim-newlines@3.0.1: {}
 
