@@ -92,6 +92,9 @@ importers:
       ng-infinite-scroll:
         specifier: ^1.3.0
         version: 1.3.0
+      optipng-bin:
+        specifier: ^9.0.0
+        version: 9.0.0
       pikaday:
         specifier: ^1.8.2
         version: 1.8.2
@@ -2740,7 +2743,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -4549,6 +4552,11 @@ packages:
   optipng-bin@6.0.0:
     resolution: {integrity: sha512-95bB4y8IaTsa/8x6QH4bLUuyvyOoGBCLDA7wOgDL8UFqJpSUh1Hob8JRJhit+wC1ZLN3tQ7mFt7KuBj0x8F2Wg==}
     engines: {node: '>=8'}
+    hasBin: true
+
+  optipng-bin@9.0.0:
+    resolution: {integrity: sha512-uDcmcNK4MRSM5ezLThUPI7fc9ZxlQMqnxhWxIc7foCcUZZ2LvzbcJwwVEsU78tC3t9B68dwE4y/m6at10Z93UA==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
 
   ora@5.4.1:
@@ -6937,10 +6945,9 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@sindresorhus/is@0.7.0':
-    optional: true
+  '@sindresorhus/is@0.7.0': {}
 
-  '@stylelint/postcss-css-in-js@0.37.3(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)':
+  '@stylelint/postcss-css-in-js@0.37.3(postcss-syntax@0.36.2)(postcss@7.0.39)':
     dependencies:
       '@babel/core': 7.25.2
       postcss: 7.0.39
@@ -6948,7 +6955,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@stylelint/postcss-markdown@0.36.2(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)':
+  '@stylelint/postcss-markdown@0.36.2(postcss-syntax@0.36.2)(postcss@7.0.39)':
     dependencies:
       postcss: 7.0.39
       postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
@@ -6969,7 +6976,6 @@ snapshots:
   '@types/keyv@3.1.4':
     dependencies:
       '@types/node': 22.5.1
-    optional: true
 
   '@types/mdast@3.0.15':
     dependencies:
@@ -6995,7 +7001,6 @@ snapshots:
   '@types/responselike@1.0.3':
     dependencies:
       '@types/node': 22.5.1
-    optional: true
 
   '@types/unist@2.0.11': {}
 
@@ -7165,13 +7170,11 @@ snapshots:
     dependencies:
       buffer-equal: 1.0.1
 
-  arch@2.2.0:
-    optional: true
+  arch@2.2.0: {}
 
   archive-type@4.0.0:
     dependencies:
       file-type: 4.4.0
-    optional: true
 
   archy@1.0.0: {}
 
@@ -7944,26 +7947,22 @@ snapshots:
       execa: 0.7.0
       p-map-series: 1.0.0
       tempfile: 2.0.0
-    optional: true
 
   bin-check@4.1.0:
     dependencies:
       execa: 0.7.0
       executable: 4.1.1
-    optional: true
 
   bin-version-check@4.0.0:
     dependencies:
       bin-version: 3.1.0
       semver: 5.7.2
       semver-truncate: 1.1.2
-    optional: true
 
   bin-version@3.1.0:
     dependencies:
       execa: 1.0.0
       find-versions: 3.2.0
-    optional: true
 
   bin-wrapper@4.1.0:
     dependencies:
@@ -7973,7 +7972,6 @@ snapshots:
       import-lazy: 3.1.0
       os-filter-obj: 2.0.0
       pify: 4.0.1
-    optional: true
 
   binary-extensions@1.13.1: {}
 
@@ -7990,7 +7988,6 @@ snapshots:
     dependencies:
       readable-stream: 2.3.8
       safe-buffer: 5.2.1
-    optional: true
 
   bl@4.1.0:
     dependencies:
@@ -8083,8 +8080,7 @@ snapshots:
       buffer-alloc-unsafe: 1.1.0
       buffer-fill: 1.0.0
 
-  buffer-crc32@0.2.13:
-    optional: true
+  buffer-crc32@0.2.13: {}
 
   buffer-equal@1.0.1: {}
 
@@ -8133,7 +8129,6 @@ snapshots:
       lowercase-keys: 1.0.0
       normalize-url: 2.0.1
       responselike: 1.0.2
-    optional: true
 
   call-bind@1.0.7:
     dependencies:
@@ -8178,7 +8173,6 @@ snapshots:
       isurl: 1.0.0
       tunnel-agent: 0.6.0
       url-to-options: 1.0.1
-    optional: true
 
   center-align@0.1.3:
     dependencies:
@@ -8421,7 +8415,6 @@ snapshots:
   clone-response@1.0.2:
     dependencies:
       mimic-response: 1.0.1
-    optional: true
 
   clone-stats@0.0.1: {}
 
@@ -8560,7 +8553,6 @@ snapshots:
     dependencies:
       ini: 1.3.8
       proto-list: 1.2.4
-    optional: true
 
   connect-livereload@0.5.4: {}
 
@@ -8645,7 +8637,6 @@ snapshots:
       semver: 5.7.2
       shebang-command: 1.2.0
       which: 1.3.1
-    optional: true
 
   cross-spawn@7.0.3:
     dependencies:
@@ -8806,14 +8797,12 @@ snapshots:
   decompress-response@3.3.0:
     dependencies:
       mimic-response: 1.0.1
-    optional: true
 
   decompress-tar@4.1.1:
     dependencies:
       file-type: 5.2.0
       is-stream: 1.1.0
       tar-stream: 1.6.2
-    optional: true
 
   decompress-tarbz2@4.1.1:
     dependencies:
@@ -8822,14 +8811,12 @@ snapshots:
       is-stream: 1.1.0
       seek-bzip: 1.0.6
       unbzip2-stream: 1.4.3
-    optional: true
 
   decompress-targz@4.1.1:
     dependencies:
       decompress-tar: 4.1.1
       file-type: 5.2.0
       is-stream: 1.1.0
-    optional: true
 
   decompress-unzip@4.0.1:
     dependencies:
@@ -8837,7 +8824,6 @@ snapshots:
       get-stream: 2.3.1
       pify: 2.3.0
       yauzl: 2.10.0
-    optional: true
 
   decompress@4.2.1:
     dependencies:
@@ -8849,7 +8835,6 @@ snapshots:
       make-dir: 1.3.0
       pify: 2.3.0
       strip-dirs: 2.1.0
-    optional: true
 
   deep-eql@0.1.3:
     dependencies:
@@ -8987,7 +8972,6 @@ snapshots:
       make-dir: 1.3.0
       p-event: 1.3.0
       pify: 3.0.0
-    optional: true
 
   download@7.1.0:
     dependencies:
@@ -9003,7 +8987,6 @@ snapshots:
       make-dir: 1.3.0
       p-event: 2.3.1
       pify: 3.0.0
-    optional: true
 
   dragula@3.7.3:
     dependencies:
@@ -9014,8 +8997,7 @@ snapshots:
     dependencies:
       readable-stream: 1.1.14
 
-  duplexer3@0.1.5:
-    optional: true
+  duplexer3@0.1.5: {}
 
   duplexer@0.1.2: {}
 
@@ -9303,7 +9285,6 @@ snapshots:
       p-finally: 1.0.0
       signal-exit: 3.0.7
       strip-eof: 1.0.0
-    optional: true
 
   execa@1.0.0:
     dependencies:
@@ -9314,7 +9295,6 @@ snapshots:
       p-finally: 1.0.0
       signal-exit: 3.0.7
       strip-eof: 1.0.0
-    optional: true
 
   execa@5.1.1:
     dependencies:
@@ -9336,7 +9316,6 @@ snapshots:
   executable@4.1.1:
     dependencies:
       pify: 2.3.0
-    optional: true
 
   expand-braces@0.1.2:
     dependencies:
@@ -9412,13 +9391,11 @@ snapshots:
   ext-list@2.2.2:
     dependencies:
       mime-db: 1.53.0
-    optional: true
 
   ext-name@5.0.0:
     dependencies:
       ext-list: 2.2.2
       sort-keys-length: 1.0.1
-    optional: true
 
   ext@1.7.0:
     dependencies:
@@ -9505,7 +9482,6 @@ snapshots:
   fd-slicer@1.1.0:
     dependencies:
       pend: 1.2.0
-    optional: true
 
   figures@1.7.0:
     dependencies:
@@ -9522,35 +9498,28 @@ snapshots:
 
   file-type@12.4.2: {}
 
-  file-type@3.9.0:
-    optional: true
+  file-type@3.9.0: {}
 
-  file-type@4.4.0:
-    optional: true
+  file-type@4.4.0: {}
 
-  file-type@5.2.0:
-    optional: true
+  file-type@5.2.0: {}
 
-  file-type@6.2.0:
-    optional: true
+  file-type@6.2.0: {}
 
-  file-type@8.1.0:
-    optional: true
+  file-type@8.1.0: {}
 
   file-uri-to-path@1.0.0:
     optional: true
 
   filename-regex@2.0.1: {}
 
-  filename-reserved-regex@2.0.0:
-    optional: true
+  filename-reserved-regex@2.0.0: {}
 
   filenamify@2.1.0:
     dependencies:
       filename-reserved-regex: 2.0.0
       strip-outer: 1.0.1
       trim-repeated: 1.0.0
-    optional: true
 
   fill-range@2.2.4:
     dependencies:
@@ -9612,7 +9581,6 @@ snapshots:
   find-versions@3.2.0:
     dependencies:
       semver-regex: 2.0.0
-    optional: true
 
   findup-sync@2.0.0:
     dependencies:
@@ -9707,7 +9675,6 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       readable-stream: 2.1.5
-    optional: true
 
   from@0.1.7: {}
 
@@ -9715,8 +9682,7 @@ snapshots:
     dependencies:
       null-check: 1.0.0
 
-  fs-constants@1.0.0:
-    optional: true
+  fs-constants@1.0.0: {}
 
   fs-mkdirp-stream@1.0.0:
     dependencies:
@@ -9766,7 +9732,6 @@ snapshots:
   get-proxy@2.1.0:
     dependencies:
       npm-conf: 1.1.3
-    optional: true
 
   get-stdin@4.0.1:
     optional: true
@@ -9777,15 +9742,12 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
       pinkie-promise: 2.0.1
-    optional: true
 
-  get-stream@3.0.0:
-    optional: true
+  get-stream@3.0.0: {}
 
   get-stream@4.1.0:
     dependencies:
       pump: 3.0.0
-    optional: true
 
   get-stream@6.0.1:
     optional: true
@@ -10001,7 +9963,6 @@ snapshots:
       timed-out: 4.0.1
       url-parse-lax: 1.0.0
       url-to-options: 1.0.1
-    optional: true
 
   got@8.3.2:
     dependencies:
@@ -10024,7 +9985,6 @@ snapshots:
       timed-out: 4.0.1
       url-parse-lax: 3.0.0
       url-to-options: 1.0.1
-    optional: true
 
   graceful-fs@2.0.3: {}
 
@@ -10415,15 +10375,13 @@ snapshots:
 
   has-proto@1.0.3: {}
 
-  has-symbol-support-x@1.4.2:
-    optional: true
+  has-symbol-support-x@1.4.2: {}
 
   has-symbols@1.0.3: {}
 
   has-to-string-tag-x@1.4.1:
     dependencies:
       has-symbol-support-x: 1.4.2
-    optional: true
 
   has-tostringtag@1.0.2:
     dependencies:
@@ -10482,8 +10440,7 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 3.6.2
 
-  http-cache-semantics@3.8.1:
-    optional: true
+  http-cache-semantics@3.8.1: {}
 
   http-errors@2.0.0:
     dependencies:
@@ -10587,8 +10544,7 @@ snapshots:
       parent-module: 1.0.1
       resolve-from: 4.0.0
 
-  import-lazy@3.1.0:
-    optional: true
+  import-lazy@3.1.0: {}
 
   import-lazy@4.0.0: {}
 
@@ -10644,7 +10600,6 @@ snapshots:
     dependencies:
       from2: 2.3.0
       p-is-promise: 1.1.0
-    optional: true
 
   intro.js@2.9.3: {}
 
@@ -10805,8 +10760,7 @@ snapshots:
   is-jpg@2.0.0:
     optional: true
 
-  is-natural-number@4.0.1:
-    optional: true
+  is-natural-number@4.0.1: {}
 
   is-negated-glob@1.0.0: {}
 
@@ -10832,8 +10786,7 @@ snapshots:
 
   is-number@7.0.0: {}
 
-  is-object@1.0.2:
-    optional: true
+  is-object@1.0.2: {}
 
   is-path-cwd@1.0.0: {}
 
@@ -10884,8 +10837,7 @@ snapshots:
     dependencies:
       is-unc-path: 1.0.0
 
-  is-retry-allowed@1.2.0:
-    optional: true
+  is-retry-allowed@1.2.0: {}
 
   is-shared-array-buffer@1.0.3:
     dependencies:
@@ -10971,7 +10923,6 @@ snapshots:
     dependencies:
       has-to-string-tag-x: 1.4.1
       is-object: 1.0.2
-    optional: true
 
   jade-inheritance@0.2.1:
     dependencies:
@@ -11064,8 +11015,7 @@ snapshots:
 
   jsesc@2.5.2: {}
 
-  json-buffer@3.0.0:
-    optional: true
+  json-buffer@3.0.0: {}
 
   json-buffer@3.0.1: {}
 
@@ -11170,7 +11120,6 @@ snapshots:
   keyv@3.0.0:
     dependencies:
       json-buffer: 3.0.0
-    optional: true
 
   keyv@4.5.4:
     dependencies:
@@ -11363,11 +11312,9 @@ snapshots:
       signal-exit: 3.0.7
     optional: true
 
-  lowercase-keys@1.0.0:
-    optional: true
+  lowercase-keys@1.0.0: {}
 
-  lowercase-keys@1.0.1:
-    optional: true
+  lowercase-keys@1.0.1: {}
 
   lpad-align@1.1.2:
     dependencies:
@@ -11399,7 +11346,6 @@ snapshots:
   make-dir@1.3.0:
     dependencies:
       pify: 3.0.0
-    optional: true
 
   make-dir@3.1.0:
     dependencies:
@@ -11611,8 +11557,7 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
-  mimic-response@1.0.1:
-    optional: true
+  mimic-response@1.0.1: {}
 
   min-indent@1.0.1: {}
 
@@ -11752,8 +11697,7 @@ snapshots:
 
   ng-infinite-scroll@1.3.0: {}
 
-  nice-try@1.0.5:
-    optional: true
+  nice-try@1.0.5: {}
 
   node-releases@2.0.18: {}
 
@@ -11790,7 +11734,6 @@ snapshots:
       prepend-http: 2.0.0
       query-string: 5.1.1
       sort-keys: 2.0.0
-    optional: true
 
   now-and-later@2.0.1:
     dependencies:
@@ -11800,12 +11743,10 @@ snapshots:
     dependencies:
       config-chain: 1.1.13
       pify: 3.0.0
-    optional: true
 
   npm-run-path@2.0.2:
     dependencies:
       path-key: 2.0.1
-    optional: true
 
   npm-run-path@4.0.1:
     dependencies:
@@ -11938,6 +11879,11 @@ snapshots:
       logalot: 2.1.0
     optional: true
 
+  optipng-bin@9.0.0:
+    dependencies:
+      bin-build: 3.0.0
+      bin-wrapper: 4.1.0
+
   ora@5.4.1:
     dependencies:
       bl: 4.1.0
@@ -11962,7 +11908,6 @@ snapshots:
   os-filter-obj@2.0.0:
     dependencies:
       arch: 2.2.0
-    optional: true
 
   os-homedir@1.0.2: {}
 
@@ -11980,27 +11925,21 @@ snapshots:
       mkdirp: 0.5.6
       object-assign: 4.1.1
 
-  p-cancelable@0.3.0:
-    optional: true
+  p-cancelable@0.3.0: {}
 
-  p-cancelable@0.4.1:
-    optional: true
+  p-cancelable@0.4.1: {}
 
   p-event@1.3.0:
     dependencies:
       p-timeout: 1.2.1
-    optional: true
 
   p-event@2.3.1:
     dependencies:
       p-timeout: 2.0.1
-    optional: true
 
-  p-finally@1.0.0:
-    optional: true
+  p-finally@1.0.0: {}
 
-  p-is-promise@1.1.0:
-    optional: true
+  p-is-promise@1.1.0: {}
 
   p-limit@2.3.0:
     dependencies:
@@ -12017,22 +11956,18 @@ snapshots:
   p-map-series@1.0.0:
     dependencies:
       p-reduce: 1.0.0
-    optional: true
 
   p-pipe@3.1.0: {}
 
-  p-reduce@1.0.0:
-    optional: true
+  p-reduce@1.0.0: {}
 
   p-timeout@1.2.1:
     dependencies:
       p-finally: 1.0.0
-    optional: true
 
   p-timeout@2.0.1:
     dependencies:
       p-finally: 1.0.0
-    optional: true
 
   p-try@2.2.0: {}
 
@@ -12109,8 +12044,7 @@ snapshots:
 
   path-is-inside@1.0.2: {}
 
-  path-key@2.0.1:
-    optional: true
+  path-key@2.0.1: {}
 
   path-key@3.1.1:
     optional: true
@@ -12137,8 +12071,7 @@ snapshots:
     dependencies:
       through: 2.3.8
 
-  pend@1.2.0:
-    optional: true
+  pend@1.2.0: {}
 
   performance-now@2.1.0: {}
 
@@ -12154,8 +12087,7 @@ snapshots:
 
   pify@3.0.0: {}
 
-  pify@4.0.1:
-    optional: true
+  pify@4.0.1: {}
 
   pikaday@1.8.2: {}
 
@@ -12246,11 +12178,9 @@ snapshots:
       spawn-sync: 1.0.15
       which: 1.2.14
 
-  prepend-http@1.0.4:
-    optional: true
+  prepend-http@1.0.4: {}
 
-  prepend-http@2.0.0:
-    optional: true
+  prepend-http@2.0.0: {}
 
   preserve@0.2.0: {}
 
@@ -12276,8 +12206,7 @@ snapshots:
     dependencies:
       asap: 1.0.0
 
-  proto-list@1.2.4:
-    optional: true
+  proto-list@1.2.4: {}
 
   proxy-addr@2.0.7:
     dependencies:
@@ -12297,7 +12226,6 @@ snapshots:
     dependencies:
       end-of-stream: 1.4.4
       once: 1.4.0
-    optional: true
 
   pumpify@1.5.1:
     dependencies:
@@ -12327,7 +12255,6 @@ snapshots:
       decode-uri-component: 0.2.2
       object-assign: 4.1.1
       strict-uri-encode: 1.1.0
-    optional: true
 
   querystringify@2.2.0: {}
 
@@ -12622,7 +12549,6 @@ snapshots:
   responselike@1.0.2:
     dependencies:
       lowercase-keys: 1.0.1
-    optional: true
 
   restore-cursor@3.1.0:
     dependencies:
@@ -12713,19 +12639,16 @@ snapshots:
   seek-bzip@1.0.6:
     dependencies:
       commander: 2.20.3
-    optional: true
 
   semver-greatest-satisfied-range@1.1.0:
     dependencies:
       sver-compat: 1.5.0
 
-  semver-regex@2.0.0:
-    optional: true
+  semver-regex@2.0.0: {}
 
   semver-truncate@1.1.2:
     dependencies:
       semver: 5.7.2
-    optional: true
 
   semver@4.3.6: {}
 
@@ -12921,17 +12844,14 @@ snapshots:
   sort-keys-length@1.0.1:
     dependencies:
       sort-keys: 1.1.2
-    optional: true
 
   sort-keys@1.1.2:
     dependencies:
       is-plain-obj: 1.1.0
-    optional: true
 
   sort-keys@2.0.0:
     dependencies:
       is-plain-obj: 1.1.0
-    optional: true
 
   source-map-js@1.2.0: {}
 
@@ -13065,8 +12985,7 @@ snapshots:
       isstream: 0.1.2
       readable-stream: 1.0.34
 
-  strict-uri-encode@1.1.0:
-    optional: true
+  strict-uri-encode@1.1.0: {}
 
   string-template@0.2.1: {}
 
@@ -13146,10 +13065,8 @@ snapshots:
   strip-dirs@2.1.0:
     dependencies:
       is-natural-number: 4.0.1
-    optional: true
 
-  strip-eof@1.0.0:
-    optional: true
+  strip-eof@1.0.0: {}
 
   strip-final-newline@2.0.0:
     optional: true
@@ -13168,7 +13085,6 @@ snapshots:
   strip-outer@1.0.1:
     dependencies:
       escape-string-regexp: 1.0.5
-    optional: true
 
   strnum@1.0.5:
     optional: true
@@ -13202,8 +13118,8 @@ snapshots:
 
   stylelint@13.13.1:
     dependencies:
-      '@stylelint/postcss-css-in-js': 0.37.3(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)
-      '@stylelint/postcss-markdown': 0.36.2(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)
+      '@stylelint/postcss-css-in-js': 0.37.3(postcss-syntax@0.36.2)(postcss@7.0.39)
+      '@stylelint/postcss-markdown': 0.36.2(postcss-syntax@0.36.2)(postcss@7.0.39)
       autoprefixer: 9.8.8
       balanced-match: 2.0.0
       chalk: 4.1.2
@@ -13316,16 +13232,13 @@ snapshots:
       readable-stream: 2.3.8
       to-buffer: 1.1.1
       xtend: 4.0.2
-    optional: true
 
-  temp-dir@1.0.0:
-    optional: true
+  temp-dir@1.0.0: {}
 
   tempfile@2.0.0:
     dependencies:
       temp-dir: 1.0.0
       uuid: 3.4.0
-    optional: true
 
   ternary-stream@3.0.0:
     dependencies:
@@ -13382,8 +13295,7 @@ snapshots:
 
   time-stamp@1.1.0: {}
 
-  timed-out@4.0.1:
-    optional: true
+  timed-out@4.0.1: {}
 
   timers-ext@0.1.8:
     dependencies:
@@ -13416,8 +13328,7 @@ snapshots:
 
   to-array@0.1.4: {}
 
-  to-buffer@1.1.1:
-    optional: true
+  to-buffer@1.1.1: {}
 
   to-fast-properties@1.0.3: {}
 
@@ -13481,7 +13392,6 @@ snapshots:
   trim-repeated@1.0.0:
     dependencies:
       escape-string-regexp: 1.0.5
-    optional: true
 
   trim-right@1.0.1: {}
 
@@ -13600,7 +13510,6 @@ snapshots:
     dependencies:
       buffer: 5.7.1
       through: 2.3.8
-    optional: true
 
   unc-path-regex@0.1.2: {}
 
@@ -13682,20 +13591,17 @@ snapshots:
   url-parse-lax@1.0.0:
     dependencies:
       prepend-http: 1.0.4
-    optional: true
 
   url-parse-lax@3.0.0:
     dependencies:
       prepend-http: 2.0.0
-    optional: true
 
   url-parse@1.5.10:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
 
-  url-to-options@1.0.1:
-    optional: true
+  url-to-options@1.0.1: {}
 
   use@3.1.1: {}
 
@@ -14051,7 +13957,6 @@ snapshots:
     dependencies:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
-    optional: true
 
   yeast@0.1.2: {}
 
