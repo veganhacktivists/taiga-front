@@ -40,7 +40,7 @@ a.list-itemtype-ticket(
                 )
 
         .list-itemtype-data-title
-            //- span.ticket-id(tg-bo-ref="duty.get('ref')")
+            span.ticket-id(tg-bo-ref="duty.get('ref')")
             span.ticket-title
                 span.ticket-blocked(
                     ng-if="::vm.duty.get('is_blocked')"
